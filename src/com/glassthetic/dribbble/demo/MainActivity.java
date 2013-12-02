@@ -13,7 +13,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.glassthetic.dribbble.api.DribbbleAPI;
-import com.glassthetic.dribbble.api.Response;
+import com.glassthetic.dribbble.api.ErrorListener;
+import com.glassthetic.dribbble.api.Listener;
 import com.glassthetic.dribbble.api.Shot;
 
 
@@ -26,7 +27,7 @@ public class MainActivity extends Activity {
 		
 		final MainActivity mainActivity = this;
 		
-		api.getPopularShots(new Response.Listener<List<Shot>>() {
+		api.getPopularShots(new Listener<List<Shot>>() {
 
 			@Override
 			public void onResponse(List<Shot> shots) {			
@@ -34,7 +35,7 @@ public class MainActivity extends Activity {
 				final ShotListArrayAdapter adapter = new ShotListArrayAdapter(mainActivity, R.layout.list_item, shots);
 				list.setAdapter(adapter);
 			}
-		}, new Response.ErrorListener() {
+		}, new ErrorListener() {
 
 			@Override
 			public void onErrorResponse(Exception error) {
