@@ -25,14 +25,12 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		final DribbbleAPI api = new DribbbleAPI(this.getApplicationContext());
 		
-		final MainActivity mainActivity = this;
-		
 		api.getPopularShots(new Listener<List<Shot>>() {
 
 			@Override
 			public void onResponse(List<Shot> shots) {			
 				final ListView list = (ListView) findViewById(R.id.list);
-				final ShotListArrayAdapter adapter = new ShotListArrayAdapter(mainActivity, R.layout.list_item, shots);
+				final ShotListArrayAdapter adapter = new ShotListArrayAdapter(MainActivity.this, R.layout.list_item, shots);
 				list.setAdapter(adapter);
 			}
 		}, new ErrorListener() {
