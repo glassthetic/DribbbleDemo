@@ -23,22 +23,22 @@ public class ShotsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.shots_list);
 		Intent intent = getIntent();
-		List<Shot> shots = intent.getParcelableArrayListExtra("shots");
+		final List<Shot> shots = intent.getParcelableArrayListExtra("shots");
 		final ListView listView = (ListView) findViewById(R.id.list);
 		final ShotListArrayAdapter adapter = new ShotListArrayAdapter(this, R.layout.shots_list_item, shots);
 		listView.setAdapter(adapter);
 		
-//		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//			@Override
-//			public void onItemClick(AdapterView<?> parentAdapter, View view, int position, long id) {
-//				Intent intent = new Intent();
-//				Shot shot = shots.get(position);
-//				intent.setClass(ShotsActivity.this, ShotActivity.class);
-//				intent.putExtra("title", shot.title);
-//				startActivity(intent);
-//			}
-//		});
+		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parentAdapter, View view, int position, long id) {
+				Intent intent = new Intent();
+				Shot shot = shots.get(position);
+				intent.setClass(ShotsActivity.this, ShotActivity.class);
+				intent.putExtra("shot", shot);
+				startActivity(intent);
+			}
+		});
 	}
 	
 	private class ShotListArrayAdapter extends ArrayAdapter<Shot> {
