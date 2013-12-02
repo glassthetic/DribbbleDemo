@@ -26,6 +26,12 @@
                     android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name="com.glassthetic.dribbble.demo.ShotsActivity" />
+        
+        <activity
+            android:name="com.glassthetic.dribbble.demo.ShotActivity" />
     </application>
 
 </manifest>
