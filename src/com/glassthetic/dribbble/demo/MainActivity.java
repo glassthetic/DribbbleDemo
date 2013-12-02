@@ -28,10 +28,10 @@ public class MainActivity extends Activity {
 		api.getPopularShots(new Listener<List<Shot>>() {
 
 			@Override
-			public void onResponse(List<Shot> shots) {			
-				final ListView list = (ListView) findViewById(R.id.list);
+			public void onResponse(final List<Shot> shots) {			
+				final ListView listView = (ListView) findViewById(R.id.list);
 				final ShotListArrayAdapter adapter = new ShotListArrayAdapter(MainActivity.this, R.layout.list_item, shots);
-				list.setAdapter(adapter);
+				listView.setAdapter(adapter);
 			}
 		}, new ErrorListener() {
 
