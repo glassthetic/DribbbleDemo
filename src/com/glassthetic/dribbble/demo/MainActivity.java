@@ -17,9 +17,9 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		final DribbbleAPI api = new DribbbleAPI(this.getApplicationContext());
+		DribbbleAPI.setContext(this.getApplicationContext());
 		
-		api.getPopularShots(new Listener<List<Shot>>() {
+		Shot.getPopular(new Listener<List<Shot>>() {
 
 			@Override
 			public void onResponse(final List<Shot> shots) {
