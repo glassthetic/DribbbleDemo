@@ -23,10 +23,9 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onResponse(final List<Shot> shots) {
-				ArrayList<? extends Parcelable> arrayListOfShots = (ArrayList<? extends Parcelable>) new ArrayList<Shot>(shots);
 				Intent intent = new Intent();
 				intent.setClass(MainActivity.this, ShotsActivity.class);
-				intent.putParcelableArrayListExtra("shots", arrayListOfShots);
+				intent.putParcelableArrayListExtra("shots", (ArrayList<? extends Parcelable>) new ArrayList<Shot>(shots));
 				startActivity(intent);
 			}
 		}, new ErrorListener() {
